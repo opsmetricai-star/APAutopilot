@@ -10,7 +10,7 @@ export function Logo() {
         <circle cx="17" cy="17" r="15" fill="#16a34a" />
         <path d="M9 21l5-9 4 6 3-4 4 7" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <span className="text-xl font-semibold tracking-[0.18em]">
+      <span className="text-base font-semibold tracking-[0.12em] sm:text-xl sm:tracking-[0.18em]">
         AP<span className="text-brand">AUTOPILOT</span>
       </span>
     </Link>
@@ -44,7 +44,7 @@ export default function Header() {
               <path d="M4 21c1-4 4-6 8-6s7 2 8 6" />
             </svg>
           </Link>
-          <Link href="/signup" className="btn-primary !py-2.5">Request demo</Link>
+          <Link href="/signup" className="btn-primary whitespace-nowrap !px-3 !py-2 !text-sm sm:!px-5 sm:!py-2.5 sm:!text-[15px]">Request demo</Link>
           <button className="lg:hidden" aria-label="Menu" onClick={() => setMobile(!mobile)}>☰</button>
         </div>
       </div>
