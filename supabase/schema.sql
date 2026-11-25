@@ -22,3 +22,9 @@ create table if not exists public.subscriptions (
 alter table public.subscriptions enable row level security;
 create policy "own subscription select" on public.subscriptions for select using (auth.uid() = user_id);
 -- Writes to subscriptions happen only via service role after verified payment.
+
+-- Table privileges (RLS policies above still restrict rows)
+grant usage on schema public to anon, authenticated;
+grant select, insert, update, delete on public.invoices to authenticated;
+grant select on public.subscriptions to authenticated;
+grant all on public.invoices, public.subscriptions to service_role;
