@@ -2,14 +2,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { menus } from "@/lib/content";
+import LogoMark from "./LogoMark";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2" aria-label="APAutopilot home">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-        <circle cx="17" cy="17" r="15" fill="#16a34a" />
-        <path d="M9 21l5-9 4 6 3-4 4 7" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <LogoMark />
       <span className={`text-base font-semibold tracking-[0.12em] sm:text-xl sm:tracking-[0.18em] ${light ? "text-white" : ""}`}>
         AP<span className="text-brand">AUTOPILOT</span>
       </span>

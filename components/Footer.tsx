@@ -5,12 +5,13 @@ const cols: Record<string, [string, string][]> = {
   Products: [["Accounts Payable", "/products/apsuite"], ["AP Inbox", "/products/inbox"], ["Bill Pay", "/products/pay"], ["Analytics", "/products/analytics"]],
   Solutions: [["Centralize AP", "/solutions/centralize-ap"], ["Fraud Prevention", "/solutions/fraud-prevention"], ["CFO", "/solutions/cfo"]],
   Company: [["About", "/about"], ["Pricing", "/pricing"], ["Log in", "/login"], ["Sign up", "/signup"]],
+  Legal: [["Privacy Policy", "/privacy"], ["Terms of Service", "/terms"], ["Security", "/products/security"]],
 };
 
 export default function Footer() {
   return (
     <footer className="bg-ink text-gray-300">
-      <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 md:grid-cols-4">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 md:grid-cols-5">
         <div>
           <Logo light />
           <p className="mt-4 text-sm">The AI-native accounts payable platform for finance teams.</p>

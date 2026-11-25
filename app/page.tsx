@@ -1,5 +1,22 @@
 import Link from "next/link";
 import Pricing from "@/components/Pricing";
+import ProductTabs from "@/components/ProductTabs";
+import RoiCalculator from "@/components/RoiCalculator";
+import Faq from "@/components/Faq";
+
+const compare = [
+  ["Data entry", "Keyed by hand from each invoice", "Extracted by AI in seconds"],
+  ["Accuracy checks", "Spot checks when time allows", "Every total recomputed in code"],
+  ["Duplicates", "Found after payment, if at all", "Flagged on upload"],
+  ["Review effort", "Every invoice is read", "Only flagged invoices need a person"],
+  ["Visibility", "Spreadsheets and inboxes", "One live record with a full audit trail"],
+];
+const industries = [
+  ["Freight and Logistics", "High-volume carrier invoices captured and validated.", "/solutions/logistics"],
+  ["Construction", "Subcontractor and supplier invoices under control.", "/solutions/construction"],
+  ["Manufacturing", "Supplier invoices reconciled to what was ordered.", "/solutions/manufacturing"],
+  ["Retail", "Seasonal supplier volume absorbed without added headcount.", "/solutions/retail"],
+];
 
 const steps = [
   ["Capture", "The model reads each invoice, whatever the layout, and extracts vendor, dates, amounts and line items."],
@@ -65,9 +82,55 @@ export default function Home() {
           {feats.map(([t, d]) => (<div key={t} className="rounded-2xl border p-6"><div className="font-medium">{t}</div><p className="mt-2 text-sm text-gray-600">{d}</p></div>))}
         </div>
       </section>
+      <section className="bg-brand-tint px-0 py-20">
+        <h2 className="mb-4 px-6 text-center text-3xl font-medium md:text-4xl">One platform, four stages of control</h2>
+        <p className="mx-auto mb-10 max-w-2xl px-6 text-center text-gray-600">From the first upload to the final record, each stage is automated and measured.</p>
+        <ProductTabs />
+      </section>
+      <section className="mx-auto max-w-[1000px] px-6 py-20">
+        <h2 className="mb-12 text-center text-3xl font-medium md:text-4xl">Manual AP versus APAutopilot</h2>
+        <div className="overflow-hidden rounded-2xl border">
+          <div className="grid grid-cols-3 bg-brand-tint px-5 py-3 text-sm font-medium"><span /><span>Manual process</span><span className="text-brand-dark">APAutopilot</span></div>
+          {compare.map(([k, a, b]) => (
+            <div key={k} className="grid grid-cols-3 gap-2 border-t px-5 py-4 text-sm"><span className="font-medium">{k}</span><span className="text-gray-600">{a}</span><span className="text-brand-dark">{b}</span></div>
+          ))}
+        </div>
+      </section>
+      <section className="bg-brand-tint px-6 py-20">
+        <h2 className="mb-4 text-center text-3xl font-medium md:text-4xl">Model your savings</h2>
+        <p className="mx-auto mb-10 max-w-2xl text-center text-gray-600">Enter your own volumes and costs to estimate what autonomous processing returns each month.</p>
+        <RoiCalculator />
+      </section>
+      <section className="mx-auto max-w-[1100px] px-6 py-20">
+        <h2 className="mb-12 text-center text-3xl font-medium md:text-4xl">Tuned to how your industry buys and pays</h2>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+          {industries.map(([t, d, h]) => (
+            <Link key={h} href={h} className="rounded-2xl border p-6 transition hover:border-brand hover:shadow-md"><div className="font-medium">{t}</div><p className="mt-2 text-sm text-gray-600">{d}</p></Link>
+          ))}
+        </div>
+      </section>
+      <section className="bg-ink px-6 py-20 text-white">
+        <div className="mx-auto grid max-w-[1100px] items-center gap-10 md:grid-cols-2">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-widest text-green-400">Trust and security</p>
+            <h2 className="mt-3 text-3xl font-medium md:text-4xl">Financial data, isolated by design</h2>
+            <p className="mt-4 text-gray-300">Every account is separated at the database level. AI credentials never leave the server, and every decision leaves a record.</p>
+            <Link href="/products/security" className="mt-6 inline-block font-medium text-green-400 hover:underline">Read the security overview</Link>
+          </div>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {["Row-level security on every table", "Server-side AI processing", "Encrypted authentication", "Full audit trail"].map((s) => (
+              <li key={s} className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm">{s}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <section className="py-20">
         <h2 className="mb-12 px-6 text-center text-3xl font-medium md:text-4xl">Pricing that scales with volume</h2>
         <Pricing />
+      </section>
+      <section className="bg-brand-tint px-6 py-20">
+        <h2 className="mb-10 text-center text-3xl font-medium md:text-4xl">Questions finance leaders ask</h2>
+        <Faq />
       </section>
       <section className="hero-bg px-6 py-24 text-center">
         <h2 className="mx-auto max-w-2xl text-3xl font-medium md:text-4xl">Put accounts payable on autopilot</h2>
