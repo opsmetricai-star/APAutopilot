@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@tailwind base; @tailwind components; @tailwind utilities;
+body { font-family: Poppins, sans-serif; color: #0f1b2d; }
+.hero-bg { background: linear-gradient(180deg,#d9f5e3 0%,#e8f7ee 45%,#f6fdf9 100%); }
+.btn { @apply inline-flex items-center rounded-lg px-5 py-3 text-[15px] font-medium transition; }
+.btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+.btn-ghost { @apply btn border border-gray-300 bg-white/70 hover:bg-white; }
