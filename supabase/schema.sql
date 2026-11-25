@@ -28,3 +28,13 @@ grant usage on schema public to anon, authenticated;
 grant select, insert, update, delete on public.invoices to authenticated;
 grant select on public.subscriptions to authenticated;
 grant all on public.invoices, public.subscriptions to service_role;
+
+-- AI extraction columns (also in migration_001_ai.sql)
+alter table public.invoices
+  add column if not exists currency text not null default 'USD',
+  add column if not exists invoice_date date,
+  add column if not exists due_date date,
+  add column if not exists po_number text,
+  add column if not exists source text not null default 'manual',
+  add column if not exists confidence numeric,
+  add column if not exists extracted jsonb;
